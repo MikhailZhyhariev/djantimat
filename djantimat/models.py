@@ -18,6 +18,9 @@ class Slang(models.Model):
     def __unicode__(self):
         return self.word
 
+    def __str__(self):
+        return self.word
+
     def save(self, *args, **kwargs):
         if not Slang.morph:
             Slang.morph = pymorphy2.MorphAnalyzer()
@@ -29,5 +32,5 @@ class Slang(models.Model):
         super(Slang, self).save(*args, **kwargs)
 
     class Meta:
-        verbose_name = u'Матерное слово'
-        verbose_name_plural = u'Матерные слова'
+        verbose_name = 'Матерное слово'
+        verbose_name_plural = 'Матерные слова'
